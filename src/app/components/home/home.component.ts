@@ -68,10 +68,4 @@ export class HomeComponent {
     );
   }
 
-  logout() {
-    this.token.signOut();
-    window.location.reload();
-  }
-
-
 }

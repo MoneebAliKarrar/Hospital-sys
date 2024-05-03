@@ -51,4 +51,8 @@ export class TokenStorageService {
 
     return this.roles;
   }
+  public isLoggedIn() {
+    return this.getToken() != `{}` ;
+  }
+
 }
