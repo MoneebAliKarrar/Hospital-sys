@@ -7,6 +7,7 @@ import { Visit } from '../../models/Visit';
 import { PatientService } from '../../services/patient.service';
 import { PrescriptionService } from '../../services/prescription.service';
 import { VisitService } from '../../services/visit.service';
+import { TokenStorageService } from '../../auth/token-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -18,15 +19,27 @@ export class HomeComponent {
   patientsList?: Patient[]
   prescriptionsList?: Prescription[]
   visitsList?: Visit[]
+  info: any;
 
 
-  constructor(private doctrosService: DoctorService, private patinetService: PatientService, private prescriptionService: PrescriptionService, private visitService: VisitService) { }
+  constructor(
+    private doctrosService: DoctorService,
+    private patinetService: PatientService,
+    private prescriptionService: PrescriptionService,
+    private visitService: VisitService,
+    private token: TokenStorageService
+  ) { }
 
   ngOnInit() {
     this.getDoctors();
     this.getPatinets();
     this.getPrescriptions();
     this.getVisits();
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    };
   }
 
   public getDoctors(): void {
@@ -53,6 +66,11 @@ export class HomeComponent {
     this.visitService.getAllvisits().subscribe(
       visitsList => this.visitsList = visitsList
     );
+  }
+
+  logout() {
+    this.token.signOut();
+    window.location.reload();
   }
 
 
