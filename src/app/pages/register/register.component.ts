@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { SignupInfo } from '../../auth/SignupInfo';
 import { AuthService } from '../../auth/auth.service';
+import { SignupInfo } from '../../auth/SignupInfo';
+
 
 
 @Component({

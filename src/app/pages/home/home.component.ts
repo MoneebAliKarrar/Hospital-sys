@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { Doctor } from '../../models/Doctor';
 import { DoctorService } from '../../services/doctor.service';
-import { Patient } from '../../models/Patient';
-import { Prescription } from '../../models/Prescription';
-import { Visit } from '../../models/Visit';
-import { PatientService } from '../../services/patient.service';
 import { PrescriptionService } from '../../services/prescription.service';
+import { PatientService } from '../../services/patient.service';
 import { VisitService } from '../../services/visit.service';
 import { TokenStorageService } from '../../auth/token-storage.service';
+import { Prescription } from '../../models/Prescription';
+import { Doctor } from '../../models/Doctor';
+import { Patient } from '../../models/Patient';
+import { Visit } from '../../models/Visit';
+
 
 @Component({
   selector: 'app-home',

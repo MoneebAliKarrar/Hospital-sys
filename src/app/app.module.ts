@@ -4,12 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { RoleGuard } from './guards/role.guard';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './pages/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './pages/register/register.component'
 import { UserComponent } from './components/user/user.component';
 import { authGuard } from './guards/auth.guard';
 import { FormsModule } from '@angular/forms';
@@ -18,6 +18,9 @@ import { HeroComponent } from './components/hero/hero.component';
 import { BiographyComponent } from './components/biography/biography.component';
 import { DepartmentsComponent } from './components/departments/departments.component';
 import { MessageFormComponent } from './components/message-form/message-form.component';
+import { AppointmentComponent } from './pages/appointment/appointment.component';
+import { AppointmentFormComponent } from './components/appointment-form/appointment-form.component';
+import { AboutusComponent } from './pages/aboutus/aboutus.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -25,6 +28,8 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [authGuard], data: { roles: ['ROLE_ADMIN'] }, },
   { path: 'auth/login', component: LoginComponent },
   { path: 'signup', component: RegisterComponent },
+  { path: 'appointment' , component: AppointmentComponent },
+  { path: 'aboutus' , component: AboutusComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
@@ -39,7 +44,10 @@ const routes: Routes = [
     HeroComponent,
     BiographyComponent,
     DepartmentsComponent,
-    MessageFormComponent
+    MessageFormComponent,
+    AppointmentComponent,
+    AppointmentFormComponent,
+    AboutusComponent
 
   ],
   imports: [
