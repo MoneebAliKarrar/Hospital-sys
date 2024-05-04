@@ -15,6 +15,9 @@ import { authGuard } from './guards/auth.guard';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { BiographyComponent } from './components/biography/biography.component';
+import { DepartmentsComponent } from './components/departments/departments.component';
+import { MessageFormComponent } from './components/message-form/message-form.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -33,7 +36,10 @@ const routes: Routes = [
     LoginComponent, RegisterComponent,
     UserComponent,
     HeaderComponent,
-    HeroComponent
+    HeroComponent,
+    BiographyComponent,
+    DepartmentsComponent,
+    MessageFormComponent
 
   ],
   imports: [

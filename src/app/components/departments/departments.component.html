@@ -1,0 +1,9 @@
+<div class="container departments">
+  <h2>Departments</h2>
+  <div class="carousel">
+    <div *ngFor="let depart of departmentsArray" class="card">
+      <div class="depart-name">{{ depart.name }}</div>
+      <img [src]="depart.imageUrl" alt="Department" />
+    </div>
+  </div>
+</div>

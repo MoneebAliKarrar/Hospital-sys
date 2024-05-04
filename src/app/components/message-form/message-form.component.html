@@ -1,0 +1,18 @@
+<div class="container form-component message-form">
+  <h2>Send Us A Message</h2>
+  <form (submit)="handleMessage($event)">
+    <div>
+      <input type="text" placeholder="First Name" [(ngModel)]="firstName" name="firstName" />
+      <input type="text" placeholder="Last Name" [(ngModel)]="lastName" name="lastName" />
+    </div>
+    <div>
+      <input type="email" placeholder="Email" [(ngModel)]="email" name="email" />
+      <input type="tel" placeholder="Mobile Number" [(ngModel)]="phone" name="phone" />
+    </div>
+    <textarea rows="7" placeholder="Message" [(ngModel)]="message" name="message"></textarea>
+    <div style="justify-content: center; align-items: center;">
+      <button type="submit">Send</button>
+    </div>
+  </form>
+  <img src="/assets/Vector.png" alt="vector" />
+</div>
