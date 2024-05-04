@@ -27,45 +27,45 @@ body {
 p,
 span,
 a {
-  font-size: 20px;
+  font-size: 15px;
 }
 h1 {
-  font-size: 36px;
+  font-size: 31px;
   font-weight: 900;
 }
 h1 {
-  font-size: 36px;
+  font-size: 31px;
   font-weight: 900;
 }
 h2 {
-  font-size: 32px;
+  font-size: 27px;
   font-weight: 900;
 }
 h3 {
-  font-size: 28px;
+  font-size: 23px;
   font-weight: 900;
 }
 h4 {
-  font-size: 24px;
+  font-size: 19px;
   font-weight: 900;
 }
 h5,
 h6 {
-  font-size: 24px;
+  font-size: 19px;
   font-weight: 700;
 }
 @media (max-width: 1186px) {
   h1 {
-    font-size: 32px;
+    font-size: 27px;
     font-weight: 900;
   }
   h2 {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 900;
   }
 }
 .container {
-  padding: 0 100px;
+  padding: 0;
 }
 @media (max-width: 700px) {
   .container {
@@ -75,9 +75,11 @@ h6 {
 .hero {
   display: flex;
   gap: 50px;
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   position: relative;
+  margin-right: 0px;
+  
 }
 .hero .banner {
   flex: 1;
@@ -130,7 +132,7 @@ h6 {
     right: -400px;
   }
   .hero .banner h1 {
-    font-size: 32px;
+    font-size: 26px;
   }
 }
 @media (max-width: 1085px) {
@@ -181,7 +183,7 @@ h6 {
 .form-component form select,
 .form-component form textarea {
   flex: 1;
-  font-size: 24px;
+  font-size: 19px;
   padding: 10px 10px 10px 40px;
   border-radius: 7px;
   border: 1px solid gray;
@@ -193,7 +195,7 @@ h6 {
   width: fit-content;
   border: none;
   border-radius: 8px;
-  font-size: 24px;
+  font-size: 19px;
   margin-bottom: 30px;
   background: linear-gradient(140deg, #9083d5, #271776ca);
 }
@@ -248,15 +250,13 @@ h6 {
   .form-component form input,
   .form-component form select,
   .form-component form textarea {
-    font-size: 20px;
+    font-size: 15px;
     padding: 10px;
   }
 }
 .biography {
   display: flex;
   gap: 50px;
-  padding-top: 40px;
-  padding-bottom: 60px;
 }
 .biography .banner:first-child {
   flex: 1;
@@ -275,7 +275,7 @@ h6 {
   letter-spacing: 3px;
 }
 .biography .banner p:first-child {
-  font-size: 24px;
+  font-size: 19px;
   letter-spacing: 2px;
 }
 @media (max-width: 925px) {
@@ -353,7 +353,7 @@ footer .content div:last-child div {
   margin-bottom: 10px;
 }
 footer .content div:last-child div svg {
-  font-size: 24px;
+  font-size: 19px;
 }
 @media (max-width: 1135px) {
   footer .content {
@@ -391,7 +391,7 @@ footer .content div:last-child div svg {
   color: gray;
   margin-bottom: 30px;
 }
-.card {
+.mycard {
   position: relative;
   border-radius: 8px;
   flex: 1;
@@ -405,7 +405,7 @@ footer .content div:last-child div svg {
   margin: 0 10px;
   text-decoration: none;
 }
-.card img {
+.mycard img {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -413,11 +413,11 @@ footer .content div:last-child div svg {
   top: 0;
   left: 0;
 }
-.card .depart-name {
+.mycard .depart-name {
   margin-bottom: 30px;
   background: #e5e5e5;
   width: 320px;
-  font-size: 24px;
+  font-size: 19px;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
@@ -446,7 +446,7 @@ nav .logo {
   flex: 1;
   display: flex;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 nav .navLinks {
   flex: 2;
@@ -463,7 +463,7 @@ nav .navLinks .links {
 nav .navLinks .links a {
   text-decoration: none;
   color: #222;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: 1.4px;
 }
@@ -478,7 +478,7 @@ nav .btn {
   background: transparent;
   border: none;
   border-radius: 20px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
   z-index: 2;
 }
@@ -492,7 +492,7 @@ nav .hamburger {
   display: none;
 }
 nav svg {
-  font-size: 1.75rem;
+  font-size: 1rem;
 }
 @media (max-width: 1520px) {
   nav {

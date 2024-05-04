@@ -52,14 +52,15 @@ const routes: Routes = [
     AppointmentFormComponent,
     AboutusComponent,
     PrescriptionComponent,
-    PrescriptionFormComponent
+    PrescriptionFormComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

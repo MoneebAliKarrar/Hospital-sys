@@ -9,39 +9,39 @@ export class DepartmentsComponent {
   departmentsArray = [
     {
       name: "Pediatrics",
-      imageUrl: "/departments/pedia.jpg",
+      imageUrl: "../../../assets/resorces/departments/pedia.jpg",
     },
     {
       name: "Orthopedics",
-      imageUrl: "/departments/ortho.jpg",
+      imageUrl: "../../../assets/resorces/departments/ortho.jpg",
     },
     {
       name: "Cardiology",
-      imageUrl: "/departments/cardio.jpg",
+      imageUrl: "../../../assets/resorces/departments/cardio.jpg",
     },
     {
       name: "Neurology",
-      imageUrl: "/departments/neuro.jpg",
+      imageUrl: "../../../assets/resorces/departments/neuro.jpg",
     },
     {
       name: "Oncology",
-      imageUrl: "/departments/onco.jpg",
+      imageUrl: "../../../assets/resorces/departments/onco.jpg",
     },
     {
       name: "Radiology",
-      imageUrl: "/departments/radio.jpg",
+      imageUrl: "../../../assets/resorces/departments/radio.jpg",
     },
     {
       name: "Physical Therapy",
-      imageUrl: "/departments/therapy.jpg",
+      imageUrl: "../../../assets/resorces/departments/therapy.jpg",
     },
     {
       name: "Dermatology",
-      imageUrl: "/departments/derma.jpg",
+      imageUrl: "../../../assets/resorces/departments/derma.jpg",
     },
     {
       name: "ENT",
-      imageUrl: "/departments/ent.jpg",
+      imageUrl: "../../../assets/resorces/departments/ent.jpg",
     },
   ];
 

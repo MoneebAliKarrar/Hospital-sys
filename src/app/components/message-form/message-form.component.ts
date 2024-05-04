@@ -12,8 +12,7 @@ export class MessageFormComponent {
   phone: number | null = null;
   message: string = '';
 
-  handleMessage(event: Event) {
-    event.preventDefault();
+  handleMessage() {
     console.log('Message submitted:', this.firstName, this.lastName, this.email, this.phone, this.message);
     this.resetForm();
   }

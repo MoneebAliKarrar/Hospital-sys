@@ -1,6 +1,6 @@
 <div class="container form-component message-form">
   <h2>Send Us A Message</h2>
-  <form (submit)="handleMessage($event)">
+  <form (submit)="handleMessage()">
     <div>
       <input type="text" placeholder="First Name" [(ngModel)]="firstName" name="firstName" />
       <input type="text" placeholder="Last Name" [(ngModel)]="lastName" name="lastName" />
