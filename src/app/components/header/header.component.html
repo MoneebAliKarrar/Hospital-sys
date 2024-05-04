@@ -14,6 +14,12 @@
           <a class="nav-link active" aria-current="page" routerLink="admin"
             *ngIf="userService.roleMatch(['ROLE_ADMIN'])">Admin Dashboard</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="add-prescription"
+            *ngIf="userService.roleMatch(['ROLE_ADMIN'])">Add Prescription</a>
+        </li>
+        
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="user"
             *ngIf="userService.roleMatch(['ROLE_USER'])">User Dashboard</a>
@@ -26,6 +32,8 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="aboutus">About us</a>
         </li>
+
+
       </ul>
       <button *ngIf="! isLoggedIn()" type="button" class="btn btn-success" routerLink="auth/login">Login</button>
       <button *ngIf="isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()">Logout</button>

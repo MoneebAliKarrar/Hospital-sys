@@ -8,9 +8,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { RoleGuard } from './guards/role.guard';
 import { LoginComponent } from './pages/login/login.component';
-import { AdminComponent } from './components/admin/admin.component';
+import { AdminComponent } from './pages/admin/admin.component';
 import { RegisterComponent } from './pages/register/register.component'
-import { UserComponent } from './components/user/user.component';
+import { UserComponent } from './pages/user/user.component';
 import { authGuard } from './guards/auth.guard';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,6 +21,8 @@ import { MessageFormComponent } from './components/message-form/message-form.com
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { AppointmentFormComponent } from './components/appointment-form/appointment-form.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
+import { PrescriptionComponent } from './pages/prescription/prescription.component';
+import { PrescriptionFormComponent } from './components/prescription-form/prescription-form.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -30,6 +32,7 @@ const routes: Routes = [
   { path: 'signup', component: RegisterComponent },
   { path: 'appointment' , component: AppointmentComponent },
   { path: 'aboutus' , component: AboutusComponent},
+  { path: 'add-prescription', component: PrescriptionComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
@@ -47,8 +50,9 @@ const routes: Routes = [
     MessageFormComponent,
     AppointmentComponent,
     AppointmentFormComponent,
-    AboutusComponent
-
+    AboutusComponent,
+    PrescriptionComponent,
+    PrescriptionFormComponent
   ],
   imports: [
     BrowserModule,

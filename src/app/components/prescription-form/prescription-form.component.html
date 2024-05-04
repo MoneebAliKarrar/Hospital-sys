@@ -1,0 +1,11 @@
+<div class="container form-component appointment-form">
+    <h2>Appointment</h2>
+    <form (ngSubmit)="handleAppointment()">
+        <div>
+            <input type="text" placeholder="First Name" [(ngModel)]="firstName" name="firstName" required />
+            <input type="text" placeholder="Last Name" [(ngModel)]="lastName" name="lastName" required />
+        </div>
+        <!-- Other form fields here -->
+        <button type="submit">GET APPOINTMENT</button>
+    </form>
+</div>
