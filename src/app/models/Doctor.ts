@@ -9,6 +9,10 @@ export class Doctor{
     visits?:Visit[]
     prescriptions?:Prescription[]
     patients?:Patient[]
+    image?:string
+    department?:string
+    email?:string
+    phone?:string
 
     constructor(id:number, firsname:string,lastname:string,visits:Visit[],prescriptions:Prescription[],patients:Patient[]){
         this.id = id;

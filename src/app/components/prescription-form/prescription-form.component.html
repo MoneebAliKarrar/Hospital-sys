@@ -1,32 +1,28 @@
 <div class="container form-component appointment-form" style="max-width: 700px;">
-    <h2>Appointment</h2>
+    <h2>Prescription</h2>
     <form (ngSubmit)="handleAppointment()">
+        <label for="firsname">Patient First Name:</label>
         <div>
-            <label for="firsname">First Name:</label>
             <input type="text" id="firstname" name="firstname" [(ngModel)]="form.firstname" #firstname="ngModel"
                 required />
         </div>
+        <label for="medicine">Medicine:</label>
         <div>
-
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" [(ngModel)]="form.date" #date="ngModel" required />
-            <div *ngIf="date.invalid && (date.dirty || date.touched)" class="error">
-                <div *ngIf="['date.errors.required']">
-                    Date is required.
-                </div>
-            </div>
+            <input type="text" id="medicine" name="medicine" [(ngModel)]="form.medicine" #medicine="ngModel"
+                required />
         </div>
+        <label for="dose">Dose:</label>
         <div>
-            <label for="time">Time:</label>
-            <input type="time" id="time" name="time" [(ngModel)]="form.time" #time="ngModel" required />
-            <div *ngIf="time.invalid && (time.dirty || time.touched)" class="error">
-                <div *ngIf="['time.errors.required']">
-                    Time is required.
-                </div>
-            </div>
+            <input type="text" id="dose" name="dose" [(ngModel)]="form.dose" #dose="ngModel"
+                required />
         </div>
+        <label for="instruction">Instruction:</label>
         <div>
-            <label for="doctor">Doctor:</label>
+            <input type="text" id="instruction" name="instruction" [(ngModel)]="form.instruction" #instruction="ngModel"
+                required />
+        </div>
+        <label for="doctor">Doctor:</label>
+        <div>
             <select name="doctor" [(ngModel)]="form.doctor" #doctor="ngModel" required>
                 <option value="" disabled>Select Doctor</option>
                 <option *ngFor="let doctor of doctorsList" [value]="doctor.firstname">{{ doctor.firstname }}</option>
@@ -37,6 +33,6 @@
                 </div>
             </div>
         </div>
-        <button type="submit">GET APPOINTMENT</button>
+        <button type="submit">ADD PRESCRIPTION</button>
     </form>
 </div>

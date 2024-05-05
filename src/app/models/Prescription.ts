@@ -2,7 +2,7 @@ import { Doctor } from "./Doctor"
 import { Patient } from "./Patient"
 
 export class Prescription{
-    id:number
+    id?:number
     medicine:string
     dose:string
     instruction:string

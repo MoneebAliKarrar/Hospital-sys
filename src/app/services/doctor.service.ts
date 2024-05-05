@@ -41,11 +41,8 @@ export class DoctorService {
     );
   }
 
-  public deleteDoctor(id:number):Observable<Doctor>{
-    return this.http.delete<Doctor>(this.doctorsLink + `/${id}`, httpOptions).pipe(
-      tap(_ => this.log(`deleted doctor id = ${id}`)),
-      catchError(this.handleError<Doctor>(`deleted doctor id = ${id}`))
-    );
+  public deleteDoctor(id:number):Observable<void>{
+    return this.http.delete<void>(this.doctorsLink + `/${id}`, httpOptions);
   }
 
   public updateDoctorsSet(newdoctors:Doctor[]):Observable<Doctor[]>{
@@ -55,10 +52,10 @@ export class DoctorService {
     );
   }
 
-  public updateSpecificDoctor(newdoctor:Doctor,id:number):Observable<Doctor>{
-    return this.http.put<Doctor>(this.doctorsLink + `${id}`,newdoctor, httpOptions).pipe(
-      tap(_ => this.log(`updated doctor id = ${id}`)),
-      catchError(this.handleError<Doctor>(`updating doctor id = ${id}`))
+  public updateSpecificDoctor(newdoctor:Doctor):Observable<Doctor>{
+    return this.http.put<Doctor>(this.doctorsLink + `${newdoctor.id}`,newdoctor, httpOptions).pipe(
+      tap(_ => this.log(`updated doctor id = ${newdoctor.id}`)),
+      catchError(this.handleError<Doctor>(`updating doctor id = ${newdoctor.id}`))
     );
   }
 

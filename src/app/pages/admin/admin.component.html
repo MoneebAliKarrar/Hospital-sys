@@ -1,3 +1,51 @@
-<h4>Content from Server</h4>
-{{board}}
-{{errorMessage}}
+<section class="dashboard page"  style="margin: 20px 0px;">
+   <div class="banner">
+     <div class="firstBox">
+       <img src="../../../assets/resorces/doc.png" alt="docImg" />
+       <div class="content">
+         <div>
+           <p>Hello,</p>
+          <!--  <h5>{{ admin?.firstName }} {{ admin?.lastName }}</h5>-->
+         </div>
+         <p>
+           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, nam molestias. Eaque molestiae ipsam
+           commodi neque. Assumenda repellendus necessitatibus itaque.
+         </p>
+       </div>
+     </div>
+     <div class="secondBox">
+       <p>Total prescriptions</p>
+       <h3>{{prescriptionsList!.length}}</h3>
+     </div>
+   </div>
+   <div class="banner">
+     <h5>Prescriptions</h5>
+     <table>
+       <thead>
+         <tr>
+           <th>Patient</th>
+           <th>Medicine</th>
+           <th>Dose</th>
+           <th>Instruction</th>
+           <th>Doctor</th>
+           <th>PrescriptionNum</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr *ngFor="let prescription of prescriptionsList">
+           <td>{{ prescription.patient.firstname }} {{ prescription.patient.lastname }}</td>
+           <td>{{ prescription.medicine}}</td>
+           <td>{{ prescription.dose}}</td>
+           <td>{{ prescription.instruction}}</td>
+           <td>{{ prescription.doctor.firstname }} {{ prescription.doctor.lastname }}</td>
+           <td>{{ prescription.id }}</td>
+           <td>
+           </td>
+         </tr>
+         <tr *ngIf="prescriptionsList!.length === 0">
+           <td colspan="6">No Appointments Found!</td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+ </section>
