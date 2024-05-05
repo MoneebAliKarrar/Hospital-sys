@@ -3,12 +3,12 @@ import { Prescription } from "./Prescription"
 import { Visit } from "./Visit"
 
 export class Doctor{
-    id:number
-    firstname:string
-    lastname:string
-    visits:Visit[]
-    prescriptions:Prescription[]
-    patients:Patient[]
+    id?:number
+    firstname?:string
+    lastname?:string
+    visits?:Visit[]
+    prescriptions?:Prescription[]
+    patients?:Patient[]
 
     constructor(id:number, firsname:string,lastname:string,visits:Visit[],prescriptions:Prescription[],patients:Patient[]){
         this.id = id;

@@ -26,13 +26,13 @@ import { PrescriptionFormComponent } from './components/prescription-form/prescr
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'user', component: UserComponent, canActivate: [RoleGuard], data: { roles: ['ROLE_USER', 'ROLE_ADMIN'] }, },
-  { path: 'admin', component: AdminComponent, canActivate: [authGuard], data: { roles: ['ROLE_ADMIN'] }, },
+  { path: 'user', component: UserComponent, canActivate: [authGuard], data: { roles: ['ROLE_USER', 'ROLE_ADMIN'] } },
+  { path: 'admin', component: AdminComponent, canActivate: [authGuard], data: { roles: ['ROLE_ADMIN'] } },
   { path: 'auth/login', component: LoginComponent },
   { path: 'signup', component: RegisterComponent },
-  { path: 'appointment' , component: AppointmentComponent },
+  { path: 'appointment' , component: AppointmentComponent ,canActivate: [authGuard], data: { roles: ['ROLE_USER'] }},
   { path: 'aboutus' , component: AboutusComponent},
-  { path: 'add-prescription', component: PrescriptionComponent},
+  { path: 'add-prescription', component: PrescriptionComponent,canActivate: [authGuard], data: { roles: ['ROLE_ADMIN'] }},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
@@ -60,7 +60,7 @@ const routes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

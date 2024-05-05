@@ -2,7 +2,7 @@ import { Doctor } from "./Doctor"
 import { Patient } from "./Patient"
 
 export class Visit{
-    id:number
+    id?:number
     date:Date
     doctor:Doctor
     patient:Patient

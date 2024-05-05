@@ -20,12 +20,21 @@ export class VisitService {
     return this.http.get<Visit[]>(this.visitsLink);
   }
 
-  public getSpecificPatinet(id: number): Observable<Visit> {
+  public getSpecificVisit(id: number): Observable<Visit> {
     return this.http.get<Visit>(this.visitsLink + `/${id}`).pipe(
       tap(_ => this.log(`fetched Patinet id=${id}`)),
       catchError(this.handleError<Visit>(`getDoctor id=${id}`))
     );
   }
+/*
+  public getVisitForSpecificUser(id: number): Observable<Visit> {
+    return this.http.get<Visit>(this.visitsLink + `/user/${id}`).pipe(
+      tap(_ => this.log(`fetched Patinet id=${id}`)),
+      catchError(this.handleError<Visit>(`getDoctor id=${id}`))
+    );
+  }
+  */
+
 
   public addvisit(newvisit: Visit): Observable<Visit> {
     return this.http.post<Visit>(this.visitsLink, newvisit, httpOptions).pipe(

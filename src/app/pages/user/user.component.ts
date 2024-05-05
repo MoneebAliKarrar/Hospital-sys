@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { VisitService } from '../../services/visit.service';
+import { Visit } from '../../models/Visit';
 
 
 @Component({
@@ -9,21 +11,20 @@ import { UserService } from '../../services/user.service';
 })
 export class UserComponent {
 
-  board?: string;
-  errorMessage?: string;
+  visitsList?:Visit[]
+  constructor(private visitService:VisitService) { }
 
-  constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getUserPage().subscribe({
-      next: (data) => {
-        this.board = data;
-      }
-      ,
-      error: (error) => {
-        this.errorMessage = `${error.status}: ${JSON.parse(error.error).message}`;
-      }
-    });
+    this.getVisits();
   }
+
+  public getVisits(): void {
+    this.visitService.getAllvisits().subscribe(
+      visitsList => this.visitsList = visitsList
+    );
+  }
+
+  appointments: any[] = [];
 
 }

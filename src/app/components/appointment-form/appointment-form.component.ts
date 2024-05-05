@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 import { Doctor } from '../../models/Doctor';
 import { DoctorService } from '../../services/doctor.service';
 import { VisitService } from '../../services/visit.service';
+import { Visit } from '../../models/Visit';
+import { TokenStorageService } from '../../auth/token-storage.service';
+import { Patient } from '../../models/Patient';
 
 @Component({
   selector: 'appointmentForm',
@@ -10,37 +13,16 @@ import { VisitService } from '../../services/visit.service';
   styleUrl: './appointment-form.component.css'
 })
 export class AppointmentFormComponent {
-  firstName: string = '';
-  lastName: string = '';
-  email: string = '';
-  phone: string = '';
-  nic: string = '';
-  dob: string = '';
-  gender: string = '';
-  appointmentDate: string = '';
-  department: string = '';
-  doctor: string = '';
-  address: string = '';
-  hasVisited: boolean = false;
   doctorsList?: Doctor[]
+  form: any = {};
+  username?:string
+  patient?:Patient
 
-  departmentsArray: string[] = [
-    "Pediatrics",
-    "Orthopedics",
-    "Cardiology",
-    "Neurology",
-    "Oncology",
-    "Radiology",
-    "Physical Therapy",
-    "Dermatology",
-    "ENT"
-  ];
-  doctors: any[] = [];
-
-  constructor(private http: HttpClient, private doctrosService: DoctorService, private visitService: VisitService) { }
+  constructor(private tokenStorageService: TokenStorageService, private doctrosService: DoctorService, private visitService: VisitService) { }
 
   ngOnInit(): void {
     this.getDoctors();
+    this.username = this.tokenStorageService.getUsername();
   }
   public getDoctors(): void {
     this.doctrosService.getAllDoctors().subscribe(
@@ -48,12 +30,27 @@ export class AppointmentFormComponent {
     );
   }
 
-  handleAppointment() {
-    // Check if required fields are filled
-    if (!this.firstName || !this.lastName || !this.email || !this.phone || !this.department || !this.doctor) {
-      console.error('Please fill all required fields.');
-      return;
-    }
+  handleAppointment(): void {
+  
+    const newVisit: Visit = {
+      date: this.form.date,
+      doctor: {firstname : this.form.doctor},
+      patient :{ firstname: this.form.firstname}
+    };
 
+    this.visitService.addvisit(newVisit).subscribe(
+      addedVisit => {
+        console.log('New visit added successfully:', addedVisit);
+        this.resetForm();
+      },
+      error => {
+        console.error('Error adding new visit:', error);
+      }
+    );
+  }
+
+  resetForm(): void {
+    this.form.date = '';
+    this.form.doctor = '';
   }
 }
