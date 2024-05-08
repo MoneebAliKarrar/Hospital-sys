@@ -23,14 +23,16 @@ import { AppointmentFormComponent } from './components/appointment-form/appointm
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { PrescriptionComponent } from './pages/prescription/prescription.component';
 import { PrescriptionFormComponent } from './components/prescription-form/prescription-form.component';
+import { EditDetailsComponent } from './pages/edit-details/edit-details.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'user', component: UserComponent, canActivate: [authGuard], data: { roles: ['ROLE_USER', 'ROLE_ADMIN'] } },
   { path: 'admin', component: AdminComponent, canActivate: [authGuard], data: { roles: ['ROLE_ADMIN'] } },
   { path: 'auth/login', component: LoginComponent },
-  { path: 'signup', component: RegisterComponent },
+  { path: 'auth/signup', component: RegisterComponent },
   { path: 'appointment' , component: AppointmentComponent ,canActivate: [authGuard], data: { roles: ['ROLE_USER'] }},
+  { path: 'userdetails' , component: EditDetailsComponent ,canActivate: [authGuard], data: { roles: ['ROLE_USER'] }},
   { path: 'aboutus' , component: AboutusComponent},
   { path: 'add-prescription', component: PrescriptionComponent,canActivate: [authGuard], data: { roles: ['ROLE_ADMIN'] }},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
@@ -53,6 +55,7 @@ const routes: Routes = [
     AboutusComponent,
     PrescriptionComponent,
     PrescriptionFormComponent,
+    EditDetailsComponent,
     
   ],
   imports: [

@@ -1,6 +1,8 @@
 <div class="container">
   <div *ngIf="isLoggedIn; else loggedOut">
-    Logged in as {{roles}}.
+    <div class="alert alert-success">
+      Logged in as {{roles}}.
+    </div>
   </div>
   <ng-template #loggedOut>
     <div class="form-component login-form" style="max-width:700px;">
@@ -37,7 +39,7 @@
       <hr />
       <div style="gap: 10px; justify-content :flex-end;flex-direction:row">
         <p>Don't have an account?</p>
-        <a href="signup" class="btn btn-success">Sign Up</a>
+        <a href="auth/signup" class="btn btn-success">Sign Up</a>
       </div>
     </div>
   </ng-template>

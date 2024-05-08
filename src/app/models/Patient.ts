@@ -1,5 +1,6 @@
 import { Doctor } from "./Doctor"
 import { Prescription } from "./Prescription"
+import { User } from "./User"
 import { Visit } from "./Visit"
 
 export class Patient{
@@ -9,14 +10,12 @@ export class Patient{
     visits?:Visit[]
     prescriptions?:Prescription[]
     doctors?:Doctor[]
+    user?:User
 
-    constructor(id:number, firsname:string,lastname:string,visits:Visit[],prescriptions:Prescription[],doctors:Doctor[]){
-        this.id = id;
+    constructor(firsname:string,lastname:string,user:User){
         this.firstname = firsname;
         this.lastname = lastname;
-        this.visits = visits;
-        this.prescriptions = prescriptions;
-        this.doctors = doctors;
+        this.user = user
     }
 
 }
