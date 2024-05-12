@@ -473,6 +473,11 @@ nav .navLinks .links a:hover {
   transition: 0.3s;
   cursor: pointer;
 }
+.sort:hover {
+  color: #3939d9f2;
+  transition: 0.3s;
+  cursor: pointer;
+}
 nav .btn {
   padding: 8px 20px;
   color: #e5e5e5;

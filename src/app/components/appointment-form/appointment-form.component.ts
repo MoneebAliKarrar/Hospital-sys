@@ -36,6 +36,7 @@ export class AppointmentFormComponent {
     const newVisit: Visit = {
       date: this.form.date,
       dc_p_list: [{username: this.form.doctor},{username: this.username}],
+      time: this.form.time
     };
 
     this.visitService.addvisit(newVisit).subscribe(

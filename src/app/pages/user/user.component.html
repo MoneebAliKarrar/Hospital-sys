@@ -20,7 +20,7 @@
   </div>
   <form class="form-inline my-2 my-lg-0">
     <input type="search" (ngModelChange)="searchBasedOnDoctors(key.value)" #key="ngModel" ngModel
-     name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
+     name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Doctors..." required>
  </form>
   <div class="banner">
     <h5>Appointments</h5>
@@ -29,14 +29,16 @@
         <tr>
           <th>Doctor</th>
           <th>Patient</th>
-          <th>Date</th>
+          <th (click)="sortVisitsByDate()" class="sort">Date</th>
+          <th>Time</th>
           <th>Department</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let visit of visitsList">
           <td *ngFor="let user of visit.dc_p_list">{{ user.username }}</td>
-          <td>{{ visit.date | date: 'medium' }}</td>
+          <td>{{ visit.date | date: 'longDate' }}</td>
+          <td>{{visit.time}}</td>
           <td>{{ visit.id }}</td>
           <td>
           </td>
