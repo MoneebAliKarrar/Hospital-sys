@@ -12,7 +12,7 @@ import { TokenStorageService } from '../../auth/token-storage.service';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  visitsList?:Visit[]
+  visitsList!:Visit[]
   patient!:Patient
   
   constructor(private visitService:VisitService,private tokenStorageService:TokenStorageService) { }
@@ -31,6 +31,18 @@ export class UserComponent {
     );
   }
   
+  public searchBasedOnDoctors(key: string): void {
+    const results: Visit[] = [];
+    for (const visit of this.visitsList) {
+      if (visit.dc_p_list?.at(0)?.username?.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(visit);
+      }
+    }
+    this.visitsList = results;
+    if (results.length === 0 || !key) {
+      this.getVisits();
+    }
+  }
 
   appointments: any[] = [];
 
