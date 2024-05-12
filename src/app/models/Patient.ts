@@ -5,7 +5,7 @@ import { Visit } from "./Visit"
 
 export class Patient{
     id?:number
-    firstname?:string
+    firstname:string
     lastname?:string
     visits?:Visit[]
     prescriptions?:Prescription[]

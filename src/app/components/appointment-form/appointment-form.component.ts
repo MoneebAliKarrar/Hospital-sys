@@ -6,6 +6,7 @@ import { VisitService } from '../../services/visit.service';
 import { Visit } from '../../models/Visit';
 import { TokenStorageService } from '../../auth/token-storage.service';
 import { Patient } from '../../models/Patient';
+import { User } from '../../models/User';
 
 @Component({
   selector: 'appointmentForm',
@@ -13,7 +14,7 @@ import { Patient } from '../../models/Patient';
   styleUrl: './appointment-form.component.css'
 })
 export class AppointmentFormComponent {
-  doctorsList?: Doctor[]
+  doctorsList?: User[]
   form: any = {};
   username?:string
   patient?:Patient
@@ -34,8 +35,7 @@ export class AppointmentFormComponent {
   
     const newVisit: Visit = {
       date: this.form.date,
-      doctor: {firstname : this.form.doctor},
-      patient :{ firstname: this.form.firstname}
+      dc_p_list: [{username: this.form.doctor},{username: this.username}],
     };
 
     this.visitService.addvisit(newVisit).subscribe(
