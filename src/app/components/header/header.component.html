@@ -15,10 +15,7 @@
             *ngIf="userService.roleMatch(['ROLE_ADMIN'])">Admin Dashboard</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="add-prescription"
-            *ngIf="userService.roleMatch(['ROLE_ADMIN'])">Add Prescription</a>
-        </li>
+        
         
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="user"
@@ -26,13 +23,22 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="userdetails"
-            *ngIf="userService.roleMatch(['ROLE_USER'])">User Details</a>
+          <a class="nav-link active" aria-current="page" routerLink="bookappointment"
+            *ngIf="userService.roleMatch(['ROLE_USER'])">Book Visit</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="addedappointment"
+            *ngIf="userService.roleMatch(['ROLE_ADMIN'])">Available Visits</a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="appointment"
-            *ngIf="userService.roleMatch(['ROLE_USER'])">Appointment</a>
+            *ngIf="userService.roleMatch(['ROLE_ADMIN'])">Add Visit</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="add-prescription"
+            *ngIf="userService.roleMatch(['ROLE_ADMIN'])">Add Prescription</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="aboutus">About us</a>

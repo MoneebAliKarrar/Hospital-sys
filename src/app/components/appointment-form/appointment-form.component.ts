@@ -31,11 +31,10 @@ export class AppointmentFormComponent {
     );
   }
 
-  handleAppointment(): void {
-  
+  handleVisit(): void {
     const newVisit: Visit = {
       date: this.form.date,
-      dc_p_list: [{username: this.form.doctor},{username: this.username}],
+      dc_p_list: [{username: this.username}],
       time: this.form.time
     };
 

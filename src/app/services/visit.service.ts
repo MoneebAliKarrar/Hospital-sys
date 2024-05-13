@@ -72,7 +72,7 @@ export class VisitService {
   }
 
   public updatePartOfvisit(id: number, updates: Partial<Visit>): Observable<any> {
-    return this.http.patch(this.visitsLink, updates, httpOptions).pipe(
+    return this.http.patch(this.visitsLink +`/${id}` , updates, httpOptions).pipe(
       catchError(this.handleError<any>(`update part of visit`))
     );
   }
