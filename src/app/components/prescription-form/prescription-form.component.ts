@@ -13,31 +13,26 @@ import { TokenStorageService } from '../../auth/token-storage.service';
   styleUrl: './prescription-form.component.css'
 })
 export class PrescriptionFormComponent {
-  doctorsList?: Doctor[]
   form: any = {};
-  username?:string
-  patient?:Patient
+  username?: string
+  patient?: Patient
 
-  constructor(private tokenStorageService: TokenStorageService, private doctrosService: DoctorService, private prescriptionService: PrescriptionService) { }
+  constructor(private tokenStorageService: TokenStorageService, private prescriptionService: PrescriptionService) { }
 
   ngOnInit(): void {
-    this.getDoctors();
     this.username = this.tokenStorageService.getUsername();
   }
-  public getDoctors(): void {
-    this.doctrosService.getAllDoctors().subscribe(
-      doctorsList => this.doctorsList = doctorsList
-    );
-  }
 
-  handleAppointment(): void {
-  
+  handlePrescription(): void {
     const newPrescription: Prescription = {
-      medicine: this.form.date,
+      medicine: this.form.medicine,
       dose: this.form.dose,
       instruction: this.form.instruction,
-      doctor: {firstname : this.form.doctor},
-      patient :{ firstname: this.form.firstname}
+      dc_p_list: [{
+        username: this.tokenStorageService.getUsername()
+      }, {
+        username: this.form.username
+      }]
     };
 
     this.prescriptionService.addprescription(newPrescription).subscribe(
@@ -52,8 +47,10 @@ export class PrescriptionFormComponent {
   }
 
   resetForm(): void {
-    this.form.date = '';
-    this.form.doctor = '';
+    this.form.username = '';
+    this.form.medicine = '';
+    this.form.dose = '';
+    this.form.instruction = '';
   }
 
 }

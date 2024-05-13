@@ -1,37 +1,22 @@
 <div class="container form-component appointment-form" style="max-width: 700px;">
     <h2>Prescription</h2>
-    <form (ngSubmit)="handleAppointment()">
-        <label for="firsname">Patient First Name:</label>
+    <form (ngSubmit)="handlePrescription()">
+        <label for="firsname">Patient Name:</label>
         <div>
-            <input type="text" id="firstname" name="firstname" [(ngModel)]="form.firstname" #firstname="ngModel"
-                required />
+            <input type="text" id="username" name="username" [(ngModel)]="form.username" #username="ngModel" required />
         </div>
         <label for="medicine">Medicine:</label>
         <div>
-            <input type="text" id="medicine" name="medicine" [(ngModel)]="form.medicine" #medicine="ngModel"
-                required />
+            <input type="text" id="medicine" name="medicine" [(ngModel)]="form.medicine" #medicine="ngModel" required />
         </div>
         <label for="dose">Dose:</label>
         <div>
-            <input type="text" id="dose" name="dose" [(ngModel)]="form.dose" #dose="ngModel"
-                required />
+            <input type="text" id="dose" name="dose" [(ngModel)]="form.dose" #dose="ngModel" required />
         </div>
         <label for="instruction">Instruction:</label>
         <div>
             <input type="text" id="instruction" name="instruction" [(ngModel)]="form.instruction" #instruction="ngModel"
                 required />
-        </div>
-        <label for="doctor">Doctor:</label>
-        <div>
-            <select name="doctor" [(ngModel)]="form.doctor" #doctor="ngModel" required>
-                <option value="" disabled>Select Doctor</option>
-                <option *ngFor="let doctor of doctorsList" [value]="doctor.firstname">{{ doctor.firstname }}</option>
-            </select>
-            <div *ngIf="doctor.invalid && (doctor.dirty || doctor.touched)" class="error">
-                <div *ngIf="['doctor.errors.required']">
-                    Doctor is required.
-                </div>
-            </div>
         </div>
         <button type="submit">ADD PRESCRIPTION</button>
     </form>

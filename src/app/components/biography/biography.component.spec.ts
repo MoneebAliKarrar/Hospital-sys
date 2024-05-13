@@ -10,8 +10,8 @@ describe('BiographyComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [BiographyComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(BiographyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

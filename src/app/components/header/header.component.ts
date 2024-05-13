@@ -13,11 +13,11 @@ export class HeaderComponent {
   constructor(
     private AuthService: AuthService,
     private router: Router,
-    public tokenStorageService:TokenStorageService,
-    public userService:UserService
-  ) {}
+    public tokenStorageService: TokenStorageService,
+    public userService: UserService
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   public isLoggedIn() {
     return this.tokenStorageService.isLoggedIn();

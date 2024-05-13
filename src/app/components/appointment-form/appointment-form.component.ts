@@ -16,8 +16,8 @@ import { User } from '../../models/User';
 export class AppointmentFormComponent {
   doctorsList?: User[]
   form: any = {};
-  username?:string
-  patient?:Patient
+  username?: string
+  patient?: Patient
 
   constructor(private tokenStorageService: TokenStorageService, private doctrosService: DoctorService, private visitService: VisitService) { }
 
@@ -34,7 +34,7 @@ export class AppointmentFormComponent {
   handleVisit(): void {
     const newVisit: Visit = {
       date: this.form.date,
-      dc_p_list: [{username: this.username}],
+      dc_p_list: [{ username: this.username }],
       time: this.form.time
     };
 

@@ -10,8 +10,8 @@ describe('AboutusComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [AboutusComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(AboutusComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -18,21 +18,25 @@
       <h3>{{prescriptionsList!.length}}</h3>
     </div>
   </div>
+  <form class="form-inline my-2 my-lg-0" *ngIf="userService.roleMatch(['ROLE_USER'])">
+    <input type="search" (ngModelChange)="searchBasedOnDoctors(key.value)" #key="ngModel" ngModel name="key"
+      id="searchName" class="form-control mr-sm-2" placeholder="Search Doctors..." required>
+  </form>
   <div class="banner">
     <h5>Prescriptions</h5>
     <table>
       <thead>
         <tr>
-          <th>Patient</th>
+          <th>Doctor</th>
           <th>Medicine</th>
           <th>Dose</th>
           <th>Instruction</th>
-          <th>Doctor</th>
           <th>PrescriptionNum</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let prescription of prescriptionsList">
+          <td>{{ prescription.dc_p_list?.at(0)?.username }}</td>
           <td>{{ prescription.medicine}}</td>
           <td>{{ prescription.dose}}</td>
           <td>{{ prescription.instruction}}</td>

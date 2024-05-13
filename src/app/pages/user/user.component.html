@@ -18,10 +18,10 @@
       <h3>{{visitsList!.length}}</h3>
     </div>
   </div>
-  <form class="form-inline my-2 my-lg-0">
-    <input type="search" (ngModelChange)="searchBasedOnDoctors(key.value)" #key="ngModel" ngModel
-     name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Doctors..." required>
- </form>
+  <form class="form-inline my-2 my-lg-0" *ngIf="userService.roleMatch(['ROLE_USER'])">
+    <input type="search" (ngModelChange)="searchBasedOnDoctors(key.value)" #key="ngModel" ngModel name="key"
+      id="searchName" class="form-control mr-sm-2" placeholder="Search Doctors..." required>
+  </form>
   <div class="banner">
     <h5>Appointments</h5>
     <table>

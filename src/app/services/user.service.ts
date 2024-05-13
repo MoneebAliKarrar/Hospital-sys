@@ -11,7 +11,7 @@ export class UserService {
   private userUrl = 'http://localhost:8080/exampleSecurity/user';
   private adminUrl = 'http://localhost:8080/exampleSecurity/admin';
 
-  constructor(private http: HttpClient,private tokenStorageService:TokenStorageService) {}
+  constructor(private http: HttpClient, private tokenStorageService: TokenStorageService) { }
 
   getUserPage(): Observable<string> {
     return this.http.get(this.userUrl, { responseType: 'text' });
@@ -23,7 +23,7 @@ export class UserService {
 
   public roleMatch(allowedRoles: string[]): boolean {
     let isMatch = false;
-    const userRoles : string[] = this.tokenStorageService.getAuthorities();
+    const userRoles: string[] = this.tokenStorageService.getAuthorities();
 
     if (userRoles != null && userRoles) {
       for (let i = 0; i < userRoles.length; i++) {

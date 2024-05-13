@@ -4,6 +4,8 @@ import { VisitService } from '../../services/visit.service';
 import { Visit } from '../../models/Visit';
 import { Patient } from '../../models/Patient';
 import { TokenStorageService } from '../../auth/token-storage.service';
+import { Prescription } from '../../models/Prescription';
+import { PrescriptionService } from '../../services/prescription.service';
 
 
 @Component({
@@ -12,10 +14,10 @@ import { TokenStorageService } from '../../auth/token-storage.service';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  visitsList!:Visit[]
-  patient!:Patient
-  
-  constructor(private visitService:VisitService,private tokenStorageService:TokenStorageService) { }
+  visitsList!: Visit[]
+  patient!: Patient
+
+  constructor(private visitService: VisitService, private tokenStorageService: TokenStorageService, public userService: UserService) { }
 
 
   ngOnInit() {
@@ -24,13 +26,13 @@ export class UserComponent {
   public getVisits(): void {
     this.visitService.getAllvisits().subscribe(
       visitsList => {
-          this.visitsList = visitsList.filter(visit => {
-            return visit.dc_p_list?.some(user => user.username === this.tokenStorageService.getUsername());
-          });
+        this.visitsList = visitsList.filter(visit => {
+          return visit.dc_p_list?.some(user => user.username === this.tokenStorageService.getUsername());
+        });
       }
     );
   }
-  
+
   public searchBasedOnDoctors(key: string): void {
     const results: Visit[] = [];
     for (const visit of this.visitsList) {

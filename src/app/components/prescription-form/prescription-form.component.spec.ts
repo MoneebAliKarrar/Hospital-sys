@@ -10,8 +10,8 @@ describe('PrescriptionFormComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [PrescriptionFormComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(PrescriptionFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

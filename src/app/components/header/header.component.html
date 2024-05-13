@@ -14,12 +14,14 @@
           <a class="nav-link active" aria-current="page" routerLink="admin"
             *ngIf="userService.roleMatch(['ROLE_ADMIN'])">Admin Dashboard</a>
         </li>
-
-        
-        
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="user"
             *ngIf="userService.roleMatch(['ROLE_USER'])">User Dashboard</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="myprescriptions"
+            *ngIf="userService.roleMatch(['ROLE_USER','ROLE_ADMIN'])">Prescriptions</a>
         </li>
 
         <li class="nav-item">

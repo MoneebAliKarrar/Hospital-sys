@@ -10,10 +10,10 @@ import { TokenStorageService } from '../../auth/token-storage.service';
   styleUrl: './book-appointment.component.css'
 })
 export class BookAppointmentComponent {
-  visitsList!:Visit[]
-  patient!:Patient
-  
-  constructor(private visitService:VisitService,private tokenStorageService:TokenStorageService) { }
+  visitsList!: Visit[]
+  patient!: Patient
+
+  constructor(private visitService: VisitService, private tokenStorageService: TokenStorageService) { }
 
 
   ngOnInit() {
@@ -22,13 +22,13 @@ export class BookAppointmentComponent {
   public getVisits(): void {
     this.visitService.getAllvisits().subscribe(
       visitsList => {
-          this.visitsList = visitsList.filter(visit => {
-            return visit.dc_p_list?.length === 1;
-          });
+        this.visitsList = visitsList.filter(visit => {
+          return visit.dc_p_list?.length === 1;
+        });
       }
     );
   }
-  
+
   public searchBasedOnDoctors(key: string): void {
     const results: Visit[] = [];
     for (const visit of this.visitsList) {
@@ -53,19 +53,19 @@ export class BookAppointmentComponent {
   public onUpdateVisit(visit: Visit): void {
     const updates: Partial<Visit> = {
       dc_p_list: [
-          {  username: visit.dc_p_list?.at(0)?.username },
-          {  username: this.tokenStorageService.getUsername() }
+        { username: visit.dc_p_list?.at(0)?.username },
+        { username: this.tokenStorageService.getUsername() }
       ]
-  };
-   this.visitService.updatePartOfvisit(visit.id!,updates).subscribe(
-    updatedVisit => {
+    };
+    this.visitService.updatePartOfvisit(visit.id!, updates).subscribe(
+      updatedVisit => {
         console.log('Visit updated:', updatedVisit);
-    },
-    error => {
+      },
+      error => {
         console.error('Error updating visit:', error);
-    }
-);
-   this.getVisits(); 
+      }
+    );
+    this.getVisits();
   }
 
 }

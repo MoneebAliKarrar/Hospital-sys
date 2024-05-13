@@ -1,53 +1,51 @@
 <section class="dashboard page" id="dashboard" style="margin: 20px 0px;">
-    <div class="banner">
-      <div class="firstBox">
-        <img src="../../../assets/resorces/doc.png" alt="docImg" />
-        <div class="content">
-          <div>
-            <p>Hello,</p>
-            <!--  <h5>{{ admin?.firstName }} {{ admin?.lastName }}</h5>-->
-          </div>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, nam molestias. Eaque molestiae ipsam
-            commodi neque. Assumenda repellendus necessitatibus itaque.
-          </p>
+  <div class="banner">
+    <div class="firstBox">
+      <img src="../../../assets/resorces/doc.png" alt="docImg" />
+      <div class="content">
+        <div>
+          <p>Hello,</p>
+          <!--  <h5>{{ admin?.firstName }} {{ admin?.lastName }}</h5>-->
         </div>
-      </div>
-      <div class="secondBox">
-        <p>Total Visits</p>
-        <h3>{{visitsList!.length}}</h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis, nam molestias. Eaque molestiae ipsam
+          commodi neque. Assumenda repellendus necessitatibus itaque.
+        </p>
       </div>
     </div>
-    <form class="form-inline my-2 my-lg-0">
-      <input type="search" (ngModelChange)="searchBasedOnDoctors(key.value)" #key="ngModel" ngModel
-       name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Doctors..." required>
-   </form>
-    <div class="banner">
-      <h5>Visits</h5>
-      <table>
-        <thead>
-          <tr>
-            <th>Doctor</th>
-            <th (click)="sortVisitsByDate()" class="sort">Date</th>
-            <th>Time</th>
-            <th>Department</th>
-            <th>Booking</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let visit of visitsList">
-            <td *ngFor="let user of visit.dc_p_list">{{ user.username }}</td>
-            <td>{{ visit.date | date: 'longDate' }}</td>
-            <td>{{visit.time}}</td>
-            <td>{{ visit.id }}</td>
-            <td><button (click)="onUpdateVisit(visit)" class="btn bg-success">Book</button></td>
-          </tr>
-          <tr *ngIf="visitsList!.length === 0">
-            <td colspan="6">No Visits Found!</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="secondBox">
+      <p>Total Visits</p>
+      <h3>{{visitsList!.length}}</h3>
     </div>
-  </section>
-
-  
+  </div>
+  <form class="form-inline my-2 my-lg-0">
+    <input type="search" (ngModelChange)="searchBasedOnDoctors(key.value)" #key="ngModel" ngModel name="key"
+      id="searchName" class="form-control mr-sm-2" placeholder="Search Doctors..." required>
+  </form>
+  <div class="banner">
+    <h5>Visits</h5>
+    <table>
+      <thead>
+        <tr>
+          <th>Doctor</th>
+          <th (click)="sortVisitsByDate()" class="sort">Date</th>
+          <th>Time</th>
+          <th>Department</th>
+          <th>Booking</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let visit of visitsList">
+          <td *ngFor="let user of visit.dc_p_list">{{ user.username }}</td>
+          <td>{{ visit.date | date: 'longDate' }}</td>
+          <td>{{visit.time}}</td>
+          <td>{{ visit.id }}</td>
+          <td><button (click)="onUpdateVisit(visit)" class="btn bg-success">Book</button></td>
+        </tr>
+        <tr *ngIf="visitsList!.length === 0">
+          <td colspan="6">No Visits Found!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

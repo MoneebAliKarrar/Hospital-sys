@@ -14,8 +14,8 @@ import { PrescriptionService } from '../../services/prescription.service';
   styleUrl: './admin.component.css'
 })
 export class AdminComponent {
-  prescriptionsList?:Prescription[]
-  constructor(private prescriptionService:PrescriptionService) { }
+  prescriptionsList?: Prescription[]
+  constructor(private prescriptionService: PrescriptionService) { }
 
 
   ngOnInit() {

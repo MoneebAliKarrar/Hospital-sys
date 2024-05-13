@@ -52,7 +52,11 @@ export class TokenStorageService {
     return this.roles;
   }
   public isLoggedIn() {
-    return this.getToken() != `{}` ;
+    return this.getToken() != `{}`;
   }
+  public isAdmin(): boolean {
+    return this.getAuthorities().some(role => role === 'ROLE_USER');
+  }
+
 
 }

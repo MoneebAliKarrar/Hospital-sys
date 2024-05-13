@@ -11,7 +11,7 @@ export class AppComponent {
   private roles?: string[];
   authority?: string;
 
-  constructor(private tokenStorage: TokenStorageService) {  }
+  constructor(private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
     console.log("init");
