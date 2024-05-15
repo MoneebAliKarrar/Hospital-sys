@@ -18,6 +18,7 @@ export class AppointmentFormComponent {
   form: any = {};
   username?: string
   patient?: Patient
+  success?:boolean = false
 
   constructor(private tokenStorageService: TokenStorageService, private doctrosService: DoctorService, private visitService: VisitService) { }
 
@@ -42,6 +43,11 @@ export class AppointmentFormComponent {
       addedVisit => {
         console.log('New visit added successfully:', addedVisit);
         this.resetForm();
+        this.success = true;
+        setTimeout(() => {
+          this.success = false; // Reset success state
+        }, 2000);
+        
       },
       error => {
         console.error('Error adding new visit:', error);
@@ -51,6 +57,7 @@ export class AppointmentFormComponent {
 
   resetForm(): void {
     this.form.date = '';
-    this.form.doctor = '';
+    this.form.time = '';
+    this.success = false
   }
 }

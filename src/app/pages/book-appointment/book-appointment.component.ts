@@ -12,12 +12,15 @@ import { TokenStorageService } from '../../auth/token-storage.service';
 export class BookAppointmentComponent {
   visitsList!: Visit[]
   patient!: Patient
+  username?:string
+  success?:boolean = false
 
   constructor(private visitService: VisitService, private tokenStorageService: TokenStorageService) { }
 
 
   ngOnInit() {
     this.getVisits();
+    this.username = this.tokenStorageService.getUsername()
   }
   public getVisits(): void {
     this.visitService.getAllvisits().subscribe(
@@ -60,6 +63,12 @@ export class BookAppointmentComponent {
     this.visitService.updatePartOfvisit(visit.id!, updates).subscribe(
       updatedVisit => {
         console.log('Visit updated:', updatedVisit);
+        this.success = true
+        setTimeout(() => {
+          this.success = false
+          window.location.reload(); // Reload the page
+        },2000);
+        
       },
       error => {
         console.error('Error updating visit:', error);

@@ -16,12 +16,14 @@ import { PrescriptionService } from '../../services/prescription.service';
 export class UserComponent {
   visitsList!: Visit[]
   patient!: Patient
+  username?:string
 
   constructor(private visitService: VisitService, private tokenStorageService: TokenStorageService, public userService: UserService) { }
 
 
   ngOnInit() {
     this.getVisits();
+    this.username = this.tokenStorageService.getUsername()
   }
   public getVisits(): void {
     this.visitService.getAllvisits().subscribe(

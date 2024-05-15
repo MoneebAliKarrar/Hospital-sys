@@ -11,10 +11,12 @@ import { UserService } from '../../services/user.service';
 })
 export class MyprescriptionsComponent {
   prescriptionsList!: Prescription[]
+  username?:string
 
   constructor(private prescriptionService: PrescriptionService, private tokenStorageService: TokenStorageService, public userService: UserService) { }
   ngOnInit() {
     this.getPrescriptions();
+    this.username = this.tokenStorageService.getUsername()
   }
 
   public getPrescriptions(): void {

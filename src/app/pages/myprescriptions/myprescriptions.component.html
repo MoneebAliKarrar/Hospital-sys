@@ -4,7 +4,7 @@
       <img src="../../../assets/resorces/doc.png" alt="docImg" />
       <div class="content">
         <div>
-          <p>Hello,</p>
+          <p>Hello,{{username}}</p>
           <!--  <h5>{{ admin?.firstName }} {{ admin?.lastName }}</h5>-->
         </div>
         <p>
@@ -28,6 +28,7 @@
       <thead>
         <tr>
           <th>Doctor</th>
+          <th>Patint</th>
           <th>Medicine</th>
           <th>Dose</th>
           <th>Instruction</th>
@@ -36,7 +37,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let prescription of prescriptionsList">
-          <td>{{ prescription.dc_p_list?.at(0)?.username }}</td>
+          <td *ngFor="let user of prescription.dc_p_list">{{ user.username }}</td>
           <td>{{ prescription.medicine}}</td>
           <td>{{ prescription.dose}}</td>
           <td>{{ prescription.instruction}}</td>

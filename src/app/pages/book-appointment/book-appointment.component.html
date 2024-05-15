@@ -4,7 +4,7 @@
       <img src="../../../assets/resorces/doc.png" alt="docImg" />
       <div class="content">
         <div>
-          <p>Hello,</p>
+          <p>Hello, {{username}}</p>
           <!--  <h5>{{ admin?.firstName }} {{ admin?.lastName }}</h5>-->
         </div>
         <p>
@@ -46,6 +46,9 @@
           <td colspan="6">No Visits Found!</td>
         </tr>
       </tbody>
+      <div *ngIf="success" class="alert alert-success">
+        Visit booked successfully!
+    </div>
     </table>
   </div>
 </section>

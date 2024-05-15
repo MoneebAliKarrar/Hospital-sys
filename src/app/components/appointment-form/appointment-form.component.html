@@ -1,24 +1,17 @@
 <div class="container form-component appointment-form" style="max-width: 700px;">
     <h2>Visit</h2>
-    <form (ngSubmit)="handleVisit()">
+    <form name="form" (ngSubmit)="f.form.valid && handleVisit()" #f="ngForm" novalidate>
         <div>
             <label for="date">Date:</label>
             <input type="date" id="date" name="date" [(ngModel)]="form.date" #date="ngModel" required />
-            <div *ngIf="date.invalid && (date.dirty || date.touched)" class="error">
-                <div *ngIf="['date.errors.required']">
-                    Date is required.
-                </div>
-            </div>
         </div>
         <div>
             <label for="time">Time:</label>
             <input type="time" id="time" name="time" [(ngModel)]="form.time" #time="ngModel" required />
-            <div *ngIf="time.invalid && (time.dirty || time.touched)" class="error">
-                <div *ngIf="['time.errors.required']">
-                    Time is required.
-                </div>
-            </div>
         </div>
         <button type="submit">Add Visit</button>
     </form>
+    <div *ngIf="success" class="alert alert-success">
+        Visit added successfully!
+    </div>
 </div>

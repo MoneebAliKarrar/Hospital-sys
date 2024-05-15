@@ -16,6 +16,7 @@ export class PrescriptionFormComponent {
   form: any = {};
   username?: string
   patient?: Patient
+  success?:Boolean = false
 
   constructor(private tokenStorageService: TokenStorageService, private prescriptionService: PrescriptionService) { }
 
@@ -39,6 +40,10 @@ export class PrescriptionFormComponent {
       addedVisit => {
         console.log('New prescription added successfully:', addedVisit);
         this.resetForm();
+        this.success = true
+        setTimeout(() => {
+          this.success = false; // Reset success state
+        }, 2000);
       },
       error => {
         console.error('Error adding new prescription:', error);

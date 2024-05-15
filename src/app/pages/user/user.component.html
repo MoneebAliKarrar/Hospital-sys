@@ -4,7 +4,7 @@
       <img src="../../../assets/resorces/doc.png" alt="docImg" />
       <div class="content">
         <div>
-          <p>Hello,</p>
+          <p>Hello, {{username}}</p>
           <!--  <h5>{{ admin?.firstName }} {{ admin?.lastName }}</h5>-->
         </div>
         <p>
@@ -27,8 +27,8 @@
     <table>
       <thead>
         <tr>
-          <th>Patient</th>
           <th>Doctor</th>
+          <th>Patient</th>
           <th (click)="sortVisitsByDate()" class="sort">Date</th>
           <th>Time</th>
           <th>Department</th>

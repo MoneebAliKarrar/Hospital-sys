@@ -6,6 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { Prescription } from '../../models/Prescription';
 import { PrescriptionService } from '../../services/prescription.service';
+import { TokenStorageService } from '../../auth/token-storage.service';
 
 
 @Component({
@@ -15,11 +16,13 @@ import { PrescriptionService } from '../../services/prescription.service';
 })
 export class AdminComponent {
   prescriptionsList?: Prescription[]
-  constructor(private prescriptionService: PrescriptionService) { }
+  username?:string
+  constructor(private prescriptionService: PrescriptionService,private tokenStorageService:TokenStorageService) { }
 
 
   ngOnInit() {
     this.getVisits();
+    this.username = this.tokenStorageService.getUsername()
   }
 
   public getVisits(): void {
