@@ -32,6 +32,7 @@
           <th (click)="sortVisitsByDate()" class="sort">Date</th>
           <th>Time</th>
           <th>Department</th>
+          <th>Booking</th>
         </tr>
       </thead>
       <tbody>
@@ -40,13 +41,15 @@
           <td>{{ visit.date | date: 'longDate' }}</td>
           <td>{{visit.time}}</td>
           <td>{{ visit.id }}</td>
-          <td>
-          </td>
+          <td><button (click)="onDeleteVisit(visit)" class="btn bg-danger">UnBook</button></td>
         </tr>
         <tr *ngIf="visitsList!.length === 0">
           <td colspan="6">No Appointments Found!</td>
         </tr>
       </tbody>
+      <div *ngIf="success" class="alert alert-success">
+        Visit Deleted successfully!
+    </div>
     </table>
   </div>
 </section>

@@ -7,6 +7,7 @@ import { Visit } from '../../models/Visit';
 import { TokenStorageService } from '../../auth/token-storage.service';
 import { Patient } from '../../models/Patient';
 import { User } from '../../models/User';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'appointmentForm',
@@ -19,6 +20,7 @@ export class AppointmentFormComponent {
   username?: string
   patient?: Patient
   success?:boolean = false
+  
 
   constructor(private tokenStorageService: TokenStorageService, private doctrosService: DoctorService, private visitService: VisitService) { }
 
@@ -60,4 +62,14 @@ export class AppointmentFormComponent {
     this.form.time = '';
     this.success = false
   }
+
+
+  getTodayDate(): string {
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth() + 1; 
+    const year = today.getFullYear();
+    const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+    return formattedDate;
+}
 }

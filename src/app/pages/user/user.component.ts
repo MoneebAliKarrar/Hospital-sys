@@ -17,6 +17,7 @@ export class UserComponent {
   visitsList!: Visit[]
   patient!: Patient
   username?:string
+  success?:boolean = false
 
   constructor(private visitService: VisitService, private tokenStorageService: TokenStorageService, public userService: UserService) { }
 
@@ -29,7 +30,7 @@ export class UserComponent {
     this.visitService.getAllvisits().subscribe(
       visitsList => {
         this.visitsList = visitsList.filter(visit => {
-          return visit.dc_p_list?.some(user => user.username === this.tokenStorageService.getUsername());
+          return visit.dc_p_list?.length === 2 && visit.dc_p_list?.some(user => user.username === this.tokenStorageService.getUsername());
         });
       }
     );
@@ -54,6 +55,29 @@ export class UserComponent {
       const dateB = new Date(b.date).getTime();
       return dateA - dateB;
     });
+  }
+
+  public onDeleteVisit(visit: Visit): void {
+    const updates: Partial<Visit> = {
+      dc_p_list: [
+        { username: visit.dc_p_list?.at(0)?.username },
+      ]
+    };
+    this.visitService.updatePartOfvisit(visit.id!, updates).subscribe(
+      updatedVisit => {
+        console.log('Visit deleted:', updatedVisit);
+        this.success = true
+        setTimeout(() => {
+          this.success = false
+          window.location.reload(); // Reload the page
+        },2000);
+        
+      },
+      error => {
+        console.error('Error updating visit:', error);
+      }
+    );
+    this.getVisits();
   }
 
   appointments: any[] = [];

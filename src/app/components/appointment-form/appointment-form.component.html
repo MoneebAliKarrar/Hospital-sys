@@ -3,7 +3,7 @@
     <form name="form" (ngSubmit)="f.form.valid && handleVisit()" #f="ngForm" novalidate>
         <div>
             <label for="date">Date:</label>
-            <input type="date" id="date" name="date" [(ngModel)]="form.date" #date="ngModel" required />
+            <input type="date" id="date" name="date" [(ngModel)]="form.date" #date="ngModel" required [min]="getTodayDate()" />
         </div>
         <div>
             <label for="time">Time:</label>
